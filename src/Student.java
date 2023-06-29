@@ -1,4 +1,4 @@
-/* Student Class */
+/* Student class */
 
 public class Student {
 
