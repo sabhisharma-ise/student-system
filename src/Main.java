@@ -5,14 +5,14 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-        int ug_no, pg_no, total;
+        int ugNo, pgNo, total = 0;
         do {
             System.out.println("Minimum Capacity: 10");
             System.out.print("Number of UG Students: ");
-            ug_no = in.nextInt();
+            ugNo = in.nextInt();
             System.out.print("Number of PG Students: ");
-            pg_no = in.nextInt();
-            total = ug_no + pg_no;
+            pgNo = in.nextInt();
+            total = ugNo + pgNo;
         } while(total < 10);
 
         in.nextLine();  // Consume newline left-over
@@ -24,8 +24,8 @@ public class Main {
 
         // Input
         System.out.println("Enter UG Student's Details: ");
-        for (int i = 0; i <= ug_no - 1; i++) {
-            arr[i] = new UGStudent("4NI21IS001", "A", 1, "CSE");
+        for (int i = 0; i < ugNo; i++) {
+            arr[i] = new UGStudent("", "", 0, "");
 
             System.out.println("Student " + (i + 1));
 
@@ -45,8 +45,8 @@ public class Main {
         }
 
         System.out.println("Enter PG Student's Details: ");
-        for (int i = ug_no; i <= total - 1; i++) {
-            arr[i] = new PGStudent("4NI21IS001", "A", "CN", "BE");
+        for (int i = ugNo; i < total; i++) {
+            arr[i] = new PGStudent("", "", "", "BE");
 
             System.out.println("Student " + (i + 1));
 
@@ -58,28 +58,20 @@ public class Main {
 
             System.out.print("Specialization: ");
             ((PGStudent) arr[i]).setSpecialization(in.nextLine());
-
-//            System.out.print("UGDegree: ");
-//            ((PGStudent) arr[i]).setUGDegree(in.nextLine());
         }
 
         // Output
         System.out.println("UG Student's Details: ");
-        for (int i = 0; i <= ug_no - 1; i++) {
-
-            System.out.println("Student " + (i + 1));
-
-            System.out.print("USN: " + arr[i].getUSN() + ", ");
-
-            System.out.print("Name: " + arr[i].getName() + ", ");
-
-            System.out.print("Semester: " + ((UGStudent) arr[i]).getSemester() + ", ");
-
-            System.out.print("Branch: " + ((UGStudent) arr[i]).getBranch() + "\n");
-        }
+        printStudentDetails(arr, 0, ugNo);
 
         System.out.println("PG Student's Details: ");
-        for (int i = ug_no; i <= total - 1; i++) {
+        printStudentDetails(arr, ugNo, total);
+    }
+
+    // Method to print student details
+    static void printStudentDetails(Student[] arr, int startingIndex, int endingIndex) {
+
+        for (int i = startingIndex; i < endingIndex; i++) {
 
             System.out.println("Student " + (i + 1));
 
@@ -87,9 +79,20 @@ public class Main {
 
             System.out.print("Name: " + arr[i].getName() + ", ");
 
-            System.out.print("Specialization: " + ((PGStudent) arr[i]).getSpecialization() + ", ");
+            if (arr[i] instanceof UGStudent ugStudent) {
 
-            System.out.print("UGDegree: " + ((PGStudent) arr[i]).getUGDegree() + "\n");
+                System.out.print("Semester: " + ugStudent.getSemester() + ", ");
+
+                System.out.print("Branch: " + ugStudent.getBranch() + "\n");
+
+            }
+            else if (arr[i] instanceof PGStudent pgStudent) {
+
+                System.out.print("Specialization: " + pgStudent.getSpecialization() + ", ");
+
+                System.out.print("UGDegree: " + pgStudent.getUGDegree() + "\n");
+
+            }
         }
     }
 }
