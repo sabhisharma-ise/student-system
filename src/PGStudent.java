@@ -1,13 +1,10 @@
 /* PGStudent Class extending the Student Class, an example of Inheritance in OOP */
 
-
 public class PGStudent extends Student{
 
     // Private Instance Variables
     private String specialization;
-    private String UGDegree;
-
-    // private final String PGDegree;  // to prohibit any modifications to PGDegree attribute
+    final private String UGDegree;  // to prohibit any modifications to UGDegree attribute
 
     // Public Constructor
     public PGStudent(String USN, String name, String specialization, String UGDegree) {
@@ -32,8 +29,8 @@ public class PGStudent extends Student{
     }
 
     // Public method (returnType: void) to set UGDegree of a student
-    public void setUGDegree(String UGDegree) {
-        this.UGDegree = UGDegree;
-    }
-    // if UGDegree attribute is set to be final, then it can't be set
+//    public void setUGDegree(String UGDegree) {
+//        this.UGDegree = UGDegree;
+//    }
+    // if UGDegree attribute is set to be final, then setUGDegree() method will not work
 }

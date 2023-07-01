@@ -14,9 +14,11 @@ public class Main {
             pg_no = in.nextInt();
             total = ug_no + pg_no;
         } while(total < 10);
+
         in.nextLine();  // Consume newline left-over
 
         System.out.println("Let's Proceed!");
+
         /* Create an array of objects (type: Student Class) */
         Student[] arr = new Student[total];
 
@@ -44,7 +46,7 @@ public class Main {
 
         System.out.println("Enter PG Student's Details: ");
         for (int i = ug_no; i <= total - 1; i++) {
-            arr[i] = new PGStudent("4NI21IS001", "A", "CN", "CSE");
+            arr[i] = new PGStudent("4NI21IS001", "A", "CN", "BE");
 
             System.out.println("Student " + (i + 1));
 
@@ -57,8 +59,8 @@ public class Main {
             System.out.print("Specialization: ");
             ((PGStudent) arr[i]).setSpecialization(in.nextLine());
 
-            System.out.print("UGDegree: ");
-            ((PGStudent) arr[i]).setUGDegree(in.nextLine());
+//            System.out.print("UGDegree: ");
+//            ((PGStudent) arr[i]).setUGDegree(in.nextLine());
         }
 
         // Output
