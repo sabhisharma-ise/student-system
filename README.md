@@ -1,5 +1,4 @@
-## Object Oriented Programming with Java (21IS4C03) 
-## Sem- 4 AY: 2022-2023 
+## Object Oriented Programming with Java
 ## Programming Assignment-1 
 Develop a Java program that represents a student system for a university, adhering to the 
 specifications provided in the class diagram. 
